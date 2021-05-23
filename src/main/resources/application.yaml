@@ -2,6 +2,14 @@ server:
   servlet:
     context-path: /api
 
+auth:
+  manager:
+    jwt:
+      secret:
+        id: tomtom
+        issuer: tomtom-palash
+        TTLms: 800000
+        
 spring:
   profiles:
     active:

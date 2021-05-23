@@ -15,35 +15,45 @@ import com.tomtom.ecommerce.beans.Cart;
 import com.tomtom.ecommerce.beans.Product;
 import com.tomtom.ecommerce.beans.ResponsePayload;
 import com.tomtom.ecommerce.exceptions.InvalidUserDetailFoundException;
+import com.tomtom.ecommerce.exceptions.JwtAuthorizationFailedException;
 import com.tomtom.ecommerce.exceptions.OperationFailureException;
 import com.tomtom.ecommerce.service.CustomerCartServiceProvider;
 import com.tomtom.ecommerce.service.impl.CustomerCartServiceProviderImpl;
+import com.tomtom.ecommerce.service.impl.CustomerCheckoutServiceProviderImpl;
 
 @RestController
 @RequestMapping("/customer")
 public class CustomerRequestController {
-    @Autowired
-    CustomerCartServiceProviderImpl  customerCartServiceProviderImpl ;
-	
+	@Autowired
+	CustomerCartServiceProviderImpl customerCartServiceProviderImpl;
+
+	@Autowired
+	CustomerCheckoutServiceProviderImpl customerCheckoutServiceProviderImpl;
+
 	@GetMapping("/cart/products")
-	public ResponseEntity<Cart> getProductListFromCart(Authentication auth) throws InvalidUserDetailFoundException{
+	public ResponseEntity<Cart> getProductListFromCart(Authentication auth) throws InvalidUserDetailFoundException {
 		return customerCartServiceProviderImpl.getAllProductsFromCart(auth.getName());
 	}
-	
+
 	@PutMapping("/cart/add-product")
-	public ResponseEntity<ResponsePayload> addProductToCart(Authentication auth,@RequestBody Product product) throws InvalidUserDetailFoundException, OperationFailureException, CloneNotSupportedException{
+	public ResponseEntity<ResponsePayload> addProductToCart(Authentication auth, @RequestBody Product product)
+			throws InvalidUserDetailFoundException, OperationFailureException, CloneNotSupportedException {
 		return customerCartServiceProviderImpl.addProductToCart(auth.getName(), product.getProductId());
 	}
-	
+
 	@PutMapping("/cart/remove-product")
-	public ResponseEntity<ResponsePayload> removeProductFromCart(Authentication auth, @RequestBody Product product) throws InvalidUserDetailFoundException, OperationFailureException, CloneNotSupportedException{
+	public ResponseEntity<ResponsePayload> removeProductFromCart(Authentication auth, @RequestBody Product product)
+			throws InvalidUserDetailFoundException, OperationFailureException, CloneNotSupportedException {
 		return customerCartServiceProviderImpl.removeProductFromCart(auth.getName(), product.getProductId());
 	}
-	
-	@PostMapping("/payment")
-	public ResponseEntity<ResponsePayload> makePayment(){
-		return null;
+
+	@PostMapping("/checkout")
+	public ResponseEntity<String> checkout(Authentication auth) throws InvalidUserDetailFoundException, JwtAuthorizationFailedException{
+		return customerCheckoutServiceProviderImpl.checkout(auth.getName());
 	}
-	
-	
+
+	@PostMapping("/payment")
+	public ResponseEntity<ResponsePayload> makePayment(Authentication auth, @RequestBody String jwtData) throws JwtAuthorizationFailedException{
+		return customerCheckoutServiceProviderImpl.makePayment(auth.getName(), jwtData);
+	}
 }

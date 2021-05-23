@@ -10,6 +10,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.tomtom.ecommerce.beans.ErrorPayload;
 import com.tomtom.ecommerce.exceptions.InvalidProductRequestedException;
 import com.tomtom.ecommerce.exceptions.InvalidUserDetailFoundException;
+import com.tomtom.ecommerce.exceptions.JwtAuthorizationFailedException;
 import com.tomtom.ecommerce.exceptions.OperationFailureException;
 
 @ControllerAdvice
@@ -23,7 +24,15 @@ public class GlobalControllerAdvice extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(er, HttpStatus.INTERNAL_SERVER_ERROR);
 
 	}
+	
+	@ExceptionHandler(JwtAuthorizationFailedException.class)
+	public ResponseEntity<ErrorPayload> handelInvalidUser(JwtAuthorizationFailedException e, WebRequest req) {
+		ErrorPayload er = new ErrorPayload();
+		er.setCause(e.getMessage());
+		er.setMessage("User authorization request malformed");
+		return new ResponseEntity<>(er, HttpStatus.BAD_REQUEST);
 
+	}
 	@ExceptionHandler(InvalidUserDetailFoundException.class)
 	public ResponseEntity<ErrorPayload> handelInvalidUser(InvalidUserDetailFoundException e, WebRequest req) {
 		ErrorPayload er = new ErrorPayload();

@@ -12,4 +12,5 @@ public interface CustomerProductRepositoryManager {
 			throws InvalidUserDetailFoundException;
 	public Cart getAllProductsFromCart(String customerId) throws InvalidUserDetailFoundException;
 
+
 }
