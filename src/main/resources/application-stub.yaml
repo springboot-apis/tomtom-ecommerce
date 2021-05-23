@@ -1,0 +1,11 @@
+auth:
+  manager:
+    customer:
+      id: 111
+      pass: cGFzczE=
+      role: CUSTOMER
+     
+    seller:
+      id: 999
+      pass: cGFzczI=
+      role: SELLER
