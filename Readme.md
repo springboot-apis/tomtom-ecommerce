@@ -23,21 +23,21 @@ This is mini ecommerce assingment wherein customer and seller can performed foll
 ##### POST \api\seller\add-products
 * This api can be invoked by Seller only to add the product to database.
 
-- GET \api\products
-This api can be invoked by both Seller and Customer
+##### GET \api\products
+* This api can be invoked by both Seller and Customer
 
-- PUT \api\cart\add-product
-This api can be invoked by Customer only to add the product to his/her cart.
+##### PUT \api\cart\add-product
+* This api can be invoked by Customer only to add the product to his/her cart.
 
-- PUT \api\cart\remove-product
-This api can be invoked by Customer only to remove the product from his/her cart.
+##### PUT \api\cart\remove-product
+* This api can be invoked by Customer only to remove the product from his/her cart.
 
-- GET \api\cart\products
-This api can be invoked by Customer only to list products from his/her cart.
+##### GET \api\cart\products
+* This api can be invoked by Customer only to list products from his/her cart.
 
-- POST \api\checkout
-This api can be invoked by Customer only to checkout hist/her cart.
+##### POST \api\checkout
+* This api can be invoked by Customer only to checkout hist/her cart.
 
-- POST \api\payment
-This api can be invoked by Customer only to make payment to the order.
+##### POST \api\payment
+* This api can be invoked by Customer only to make payment to the order.
 
