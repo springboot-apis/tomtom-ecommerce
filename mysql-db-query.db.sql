@@ -11,14 +11,14 @@ CREATE TABLE `order_items` (
 );
 
 CREATE TABLE `order` (
-  `order_id` int PRIMARY KEY,
+  `order_id` int PRIMARY KEY AUTO_INCREMENT,
   `customer_id` int UNIQUE NOT NULL,
   `status` varchar(255),
   `created_at` varchar(255) COMMENT 'When order created'
 );
 
 CREATE TABLE `products` (
-  `product_id` int PRIMARY KEY,
+  `product_id` int PRIMARY KEY AUTO_INCREMENT,
   `product_name` varchar(255),
   `seller_id` int NOT NULL,
   `mrp` int,
