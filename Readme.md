@@ -19,7 +19,7 @@ This is mini ecommerce assingment wherein customer and seller can performed foll
 - Enabled global exception handeling to provide consistent and minimal required information to the client
 
 
-### Low Level details 
+## Low Level details 
 - POST \api\seller\add-products
 This api can be invoked by Seller only to add the product to database.
 
