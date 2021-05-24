@@ -20,8 +20,8 @@ This is mini ecommerce assingment wherein customer and seller can performed foll
 
 
 ## Low Level details 
-- POST \api\seller\add-products
-This api can be invoked by Seller only to add the product to database.
+##### POST \api\seller\add-products
+* This api can be invoked by Seller only to add the product to database.
 
 - GET \api\products
 This api can be invoked by both Seller and Customer
