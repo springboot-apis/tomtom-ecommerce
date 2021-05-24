@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "d296c6fd-d3cc-4b0e-953f-e9fb4ee83df1",
+		"name": "tomtom-ecommerce-local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get-all-products-from-store",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cGFzczI=",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "999",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080\\api\\products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-product-to-cust-cart",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cGFzczE=",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "111",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"productId\": \"100\",\r\n        \"productName\": \"Lenovo yoga Laptop 15inch\",\r\n        \"productMrp\": 40000\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080\\api\\customer\\cart\\add-product",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customer",
+						"cart",
+						"add-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove-product-from-cust-cart",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cGFzczE=",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "111",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"productId\": \"100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080\\api\\customer\\cart\\remove-product",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customer",
+						"cart",
+						"remove-product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-product-to-store",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cGFzczI=",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "999",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"productId\": \"102\",\r\n        \"productName\": \"HP yoga Laptop 15inch\",\r\n        \"productMrp\": 30000\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080\\api\\seller\\add-products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"seller",
+						"add-products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer-payment",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cGFzczE=",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "111",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJ0b210b20iLCJpYXQiOjE2MjE4NjM4OTksInN1YiI6IkNhcnQocHJvZHVjdEluQ2FydD1bUHJvZHVjdChwcm9kdWN0SWQ9MTAwLCBwcm9kdWN0TmFtZT1NYWNCb29rIGFpciBMYXB0b3AgMTNpbmNoLCBwcm9kdWN0TXJwPTEwMDAwMCldLCB0b3RhbEJpbGxpbmc9MTAwMDAwKSIsImlzcyI6InRvbXRvbS1wYWxhc2giLCJleHAiOjE2MjE4NjQ2OTl9.DahdYTPrMj6zDIfazRPgbE00sHthEWhiKuOUomqBp7U",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080\\api\\customer\\payment",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customer",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer-checkout",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cGFzczE=",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "111",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080\\api\\customer\\checkout",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customer",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-products-from-cust-cart",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "cGFzczE=",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "111",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"productId\": \"100\",\r\n        \"productName\": \"Lenovo yoga Laptop 15inch\",\r\n        \"productMrp\": 40000\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080\\api\\customer\\cart\\products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customer",
+						"cart",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
